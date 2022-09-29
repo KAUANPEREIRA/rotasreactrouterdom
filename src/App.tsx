@@ -4,6 +4,9 @@ import './App.css';
 import { About } from './pages/About';
 import Home from './pages/Home';
 
+import { AboutItem } from './pages/AboutItem';
+import { NotFound } from './pages/NotFound';
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +19,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
+          <Route path="/About/:slug" element={<AboutItem/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
       <hr></hr>

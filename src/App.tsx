@@ -7,6 +7,9 @@ import Home from './pages/Home';
 import { AboutItem } from './pages/AboutItem';
 import { NotFound } from './pages/NotFound';
 
+//redirecionamento de rotas com react router dom utiliza o navigate
+//pegar parametros de url useParams
+
 function App() {
   return (
     <div className="App">

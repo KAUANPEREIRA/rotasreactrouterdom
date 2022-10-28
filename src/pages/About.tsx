@@ -1,7 +1,9 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link,useSearchParams} from "react-router-dom"
+//useSearchParams pegar o parametro da busca com react router dom
 
 export const About = () => {
+  const [searchParams,setSearchParams] = useSearchParams()
   return (
     <div>
         Pagina about

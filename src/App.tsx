@@ -1,11 +1,11 @@
-import React from 'react';
-import {Routes,Route} from 'react-router-dom'
-import './App.css';
-import { About } from './pages/About';
-import Home from './pages/Home';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
 
-import { AboutItem } from './pages/AboutItem';
-import { NotFound } from './pages/NotFound';
+import { RequireAuth } from "./components/Auth/RequireAuth";
+import { About } from "./pages/About";
+import { AboutItem } from "./pages/AboutItem";
+import { NotFound } from "./pages/NotFound";
 
 //redirecionamento de rotas com react router dom utiliza o navigate
 //pegar parametros de url useParams
@@ -19,18 +19,22 @@ function App() {
       </header>
       <hr></hr>
       <div>
-
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path="/About" element={<About/>}/>
-          <Route path="/About/:slug" element={<AboutItem/>}/>
-          <Route path="*" element={<NotFound/>}/>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/About"
+            element={
+              <RequireAuth>
+                <About />
+              </RequireAuth>
+            }
+          />
+          <Route path="/About/:slug" element={<AboutItem />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <hr></hr>
-      <footer>
-        Todos os direitos reservados
-      </footer>
+      <footer>Todos os direitos reservados</footer>
     </div>
   );
 }
